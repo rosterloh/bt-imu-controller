@@ -1,0 +1,33 @@
+&i2c0 {
+	status ="ok";
+	clock-frequency = <I2C_BITRATE_FAST>;
+
+	lsm6dsl@6a {
+		compatible = "st,lsm6dsl";
+		reg = <0x6a>;
+		label = "LSM6DSL";
+	};
+
+	apds9960@29 {
+		compatible = "avago,apds9960";
+		reg = <0x29>;
+		label = "APDS9960";
+		int-gpios = <&gpio0 27 0>;
+	};
+};
+
+&spi1 {
+	status = "ok";
+	sck-pin = <12>;
+	mosi-pin = <13>;
+	miso-pin = <14>;
+	cs-gpios = <&gpio0 29 0>;
+	/*
+    	lsm6dsl@0 {
+		compatible = "st,lsm6dsl-spi";
+		reg = <0>;
+		spi-max-frequency = <1000000>;
+		irq-gpios = <&gpio0 28 0>;
+		label = "LSM6DSL_SPI";
+	};*/
+};

@@ -1,0 +1,34 @@
+menuconfig GPIO_SEESAW
+	bool "SeeSaw I2C GPIO chip"
+	depends on GPIO && I2C
+	select HAS_DTS_GPIO
+	help
+	  Enable driver for SeeSaw I2C GPIO chip.
+
+config GPIO_SEESAW_INIT_PRIORITY
+	int "Init priority"
+    depends on GPIO_SEESAW
+	default 70
+	help
+	  Device driver initialisation priority.
+
+config GPIO_SEESAW_DEV_NAME
+	string "SeeSaw GPIO chip Device Name"
+    depends on GPIO_SEESAW
+	default "GPIO_P0"
+	help
+	  Specify the device name for the SeeSaw I2C GPIO chip.
+
+config GPIO_SEESAW_I2C_ADDR
+	hex "SeeSaw GPIO chip I2C slave address"
+    depends on GPIO_SEESAW
+	default 0x49
+	help
+	  Specify the I2C slave address for the SeeSaw I2C GPIO chip.
+
+config GPIO_SEESAW_I2C_MASTER_DEV_NAME
+	string "I2C Master to which SeeSaw GPIO chip is connected"
+    depends on GPIO_SEESAW
+	help
+	  Specify the device name of the I2C master device to which SeeSaw
+	  chip is bound.

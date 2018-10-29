@@ -1,0 +1,3 @@
+zephyr_library()
+
+zephyr_library_sources_ifdef(CONFIG_GPIO_SEESAW gpio_seesaw.c)

@@ -1,0 +1,19 @@
+mainmenu "BT controller application"
+
+menu "Application configuration"
+
+module = MAIN_MODULE
+module-str = Main module
+source "subsys/logging/Kconfig.template.log_config"
+
+module = IMU_MODULE
+module-str = IMU module
+source "subsys/logging/Kconfig.template.log_config"
+
+module = BT_MODULE
+module-str = BT module
+source "subsys/logging/Kconfig.template.log_config"
+
+endmenu
+
+source "Kconfig.zephyr"
